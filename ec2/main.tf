@@ -1,7 +1,7 @@
 data "aws_ami" "ami" {
   most_recent = true
   name_regex  = "ansible image"
-  owners      = ["data.aws_caller_identity.current.account_id"]
+  owners      = [data.aws_caller_identity.current.account_id]
 }
 
 
@@ -24,7 +24,7 @@ resource "null_resource" "provisioner" {
     }
 
     inline = [
-      "ansible-pull -i localhost, -U https://guthub.com/nareshdevops9447/terraform.git roboshop.yml -e role_name=${var.component}"
+      "ansible-pull -i localhost, -U https://github.com/nareshdevops9447/roboshop-ansibe.git roboshop.yml -e role_name=${var.component}"
       ]
 
   }
